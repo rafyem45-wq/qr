@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #0a0a0b;
+    --surface: #111113;
+    --surface-2: #1a1a1d;
+    --border: rgba(255, 255, 255, 0.06);
+    --text: #f4f4f5;
+    --text-muted: #71717a;
+    --brand: #14b8a6;
+    --brand-dim: rgba(20, 184, 166, 0.12);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Sora', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+  }
+
+  .btn-primary {
+    @apply bg-brand-500 hover:bg-brand-400 text-zinc-950 font-semibold
+           px-4 py-2.5 rounded-xl transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 focus:ring-offset-zinc-950
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-medium
+           px-4 py-2.5 rounded-xl transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-zinc-600 focus:ring-offset-2 focus:ring-offset-zinc-950
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply bg-red-500/10 hover:bg-red-500/20 text-red-400 font-medium
+           px-4 py-2.5 rounded-xl transition-all duration-200 border border-red-500/20
+           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-zinc-950;
+  }
+
+  .input {
+    @apply w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-2.5 text-zinc-100
+           placeholder:text-zinc-500 text-sm
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-zinc-900/50 border border-zinc-800 rounded-2xl;
+  }
+
+  .badge-active {
+    @apply inline-flex items-center gap-1.5 bg-emerald-500/10 text-emerald-400
+           text-xs font-medium px-2.5 py-1 rounded-full border border-emerald-500/20;
+  }
+
+  .badge-inactive {
+    @apply inline-flex items-center gap-1.5 bg-zinc-500/10 text-zinc-400
+           text-xs font-medium px-2.5 py-1 rounded-full border border-zinc-700;
+  }
+
+  .badge-valid {
+    @apply inline-flex items-center gap-1.5 bg-emerald-500/10 text-emerald-400
+           text-xs font-medium px-2.5 py-1 rounded-full border border-emerald-500/20;
+  }
+
+  .badge-invalid {
+    @apply inline-flex items-center gap-1.5 bg-red-500/10 text-red-400
+           text-xs font-medium px-2.5 py-1 rounded-full border border-red-500/20;
+  }
+}
